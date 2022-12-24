@@ -1,0 +1,4 @@
+requests
+typing
+typer
+json
