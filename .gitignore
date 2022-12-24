@@ -1,2 +1,6 @@
+# Editor Config
+.vscode/
+
+# Python Cache
 __pycache__/
 *.pyc
