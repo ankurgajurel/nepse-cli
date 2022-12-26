@@ -2,6 +2,7 @@ import json
 import requests
 import typer
 
+
 def send_req_basic(scrip: str) -> dict:
     """This is the basic send request function that will get the basic info of a company"""
     base_url = "https://www.nepsealpha.com/trading-menu/top-stocks/"
@@ -16,12 +17,16 @@ def send_req_news() -> dict:
     base_url = "https://www.nepsealpha.com/api/smx9841/get_breaking_news"
     return json.loads(requests.get(base_url).text)['breaking']
     
-def send_req_price(scrip: str) -> float:
+def send_req_scrip_data(scrip: str) -> tuple:
     """
-        This function will request raw data for the price of the company
+        This function will request raw data for the price-related data of the company. We have used api from another website called merolagani.
     """
-    base_url = "https://www.nepsealpha.com/trading/1/history?symbol=" + scrip.upper() + "&resolution=1D&from=1638921600&to=99999999999"
-    return float(json.loads(requests.get(base_url).text)['c'][-1])
+    base_url = "https://merolagani.com/handlers/webrequesthandler.ashx?type=market_summary"
+    all_scrip = json.loads(requests.get("https://merolagani.com/handlers/webrequesthandler.ashx?type=market_summary").text)["turnover"]["detail"]
+    
+    for each_scrip in all_scrip:
+        if each_scrip["s"] == scrip.upper():
+            return float(each_scrip["lp"]), float(each_scrip["pc"]), float(each_scrip["h"]), float(each_scrip["l"])
 
 def send_req_top_stocks(rank: int, field: str) -> tuple:
     """
@@ -51,8 +56,13 @@ def price(scrip: str) -> None:
         This command will print the price of the argument symbol.
         There are no extra options for this command.
     """
+    last_price, per_change, high, low = send_req_scrip_data(scrip)
     try:
-        typer.echo(f"Today's price of {scrip.upper()} is {send_req_price(scrip)}")
+        typer.echo(f"Last Price        = Rs. {last_price}")
+        typer.echo(f"Percentage Change = {per_change}%")
+        typer.echo(f"Highest Today     = Rs. {high}")
+        typer.echo(f"Lowest Today      = Rs. {low}")
+
     except Exception as what_exception:
         print(f"Could not process price because {what_exception}")
 
@@ -85,4 +95,4 @@ def top(field:str, n=5):
 
 
 if __name__ == "__main__":
-    app()
+    app()  
