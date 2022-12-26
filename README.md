@@ -1,5 +1,5 @@
 # Change into the git directory
-```cd nepse-api```
+```cd nepse-cli```
 
 
 # Install the required dependencies
