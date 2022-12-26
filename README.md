@@ -23,7 +23,7 @@ This command will print the company profile of the scrip "ADBL". The company pro
 
 The price command will give return you the Last Transaction Price, Percentage Change in the price, highest price for that transaction day and lowest price for that transaction day. The command will only take one argument which is the scrip symbol of the desired company. For example,
 
-``` pip3 nepse.py price nabil ```
+``` python3 nepse.py price nabil ```
 
 
 # Usage of news command
