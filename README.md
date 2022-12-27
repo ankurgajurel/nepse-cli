@@ -14,6 +14,22 @@ Or, if you don't want the hassle, you can also run the req.py file. This will in
 For help, use the command:
 ```python3 nepse.py --help```
 
+# Usage of nepse command
+
+```python3 nepse.py nepse```
+
+This command will get you the recent data about the NEPSE Index. For example, the above command will return the latest index of the market. 
+
+This command has three options: --live, --status, --percent-change. All these options will require one argument either be 1 or True. This just tells the program that we only need that particular information.
+
+If you want to check weather the market is open or not, you can use the following command. 
+
+``` python3 nepse.py nepse --status True ```
+
+To check the percentage change in the NEPSE Index, you can use the following command:
+
+``` python3 nepse.py nepse --percent-change 1 ```
+
 # Usage of company-profile command
 ```python3 nepse.py company-profile adbl```
 
@@ -57,3 +73,4 @@ For example,
 This command will print the top 10 gainers of the latest trading day.
 
 Remember that the max value for --n is 10. So, app will throw an exception of list out of range
+
