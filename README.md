@@ -74,3 +74,18 @@ This command will print the top 10 gainers of the latest trading day.
 
 Remember that the max value for --n is 10. So, app will throw an exception of list out of range
 
+# Usage of the index command
+
+You can check the data of every index like total gainers, losers of that index, value of that index, percent change of that index from the index command.
+
+``` python3 nepse.py index {index_name} ```
+
+The possible indices are: Banking, Tourism, Hotels, Devbanks, Hydropower, Finance, NonLifeInsu, Manufacture, Others, Microfinance, LifeInsu, Investment
+
+For example, if you want to see the data of the trading development bank index, you can use the following commnad.
+
+``` python3 nepse.py index devbanks ```
+
+For help regarding this command, type:
+
+``` python3 nepse.py index --help ```
