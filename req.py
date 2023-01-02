@@ -1,6 +1,6 @@
 import os
 
-MODULES = ['typer', 'requests', 'typing', 'json']
+MODULES = ['typer', 'requests', 'typing', 'json', 'rich']
 
 def install(modules):
     for module in modules:
