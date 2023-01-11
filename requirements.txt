@@ -1,5 +1,4 @@
 requests
 typing
 typer
-json
 rich
