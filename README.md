@@ -142,3 +142,9 @@ This will serve on the 127.0.0.1 port 3322.
 ## Company Names
 
 ``` https://127.0.0.1:3322/companies ```
+
+# Contributing
+
+<p>
+    If you're willing to contribute to this project, please go through the project yourself or contact me on any of my socials and I'll expalin all about the project to you. The projet is fairly simple and anyone with basic understanding of Python, APIs and CLIs can contribute.
+</p>
