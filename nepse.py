@@ -7,7 +7,7 @@ app = typer.Typer()
 @app.command()
 def index(index_name: str) -> None:
     """
-        This command works with the data about a specific index in NEPSE.
+        works with the data about a specific index in NEPSE.
         \n
         The list of Index are: Banking, Tourism, Hotels, Devbanks, Hydropower, Finance, NonLifeInsu, Manufacture, Others, Microfinance, LifeInsu, Investment
     """
@@ -32,7 +32,7 @@ def index(index_name: str) -> None:
 @app.command()
 def nepse(live=None, status=None, percent_change=None) -> None:
     """
-        This command works with the basic data about NEPSE as a whole for that day. Options like market status, percentage change and all are included.
+        works with the basic data about NEPSE as a whole for that day. Options like market status, percentage change and all are included.
     """
     if live:
         typer.echo(data.send_req_nepse("live"))
@@ -50,7 +50,7 @@ def nepse(live=None, status=None, percent_change=None) -> None:
 @app.command()
 def company_profile(scrip) -> None:
     """
-        This command will print the company profile of the argument symbol.
+        prints the company profile of the argument symbol.
         There are no extra options for this command
     """
     try:
@@ -63,8 +63,7 @@ def company_profile(scrip) -> None:
 @app.command()
 def price(scrip: str) -> None:
     """
-        This command will print the price of the argument symbol.
-        There are no extra options for this command.
+        prints the price of the argument symbol. no extra options for this command.
     """
     last_price, per_change, high, low = data.send_req_scrip_data(scrip)
     try:
@@ -79,8 +78,8 @@ def price(scrip: str) -> None:
 @app.command()
 def news(n: int = 3) -> None:
     """
-        This command will print the top 3 news of the argument symbol.
-        There is one extra optional "option" which the number of news.
+        prints the top 3 news of the argument symbol.
+        contains extra optional "option" which the number of news.
     """
     news_list = list(data.send_req_news())
     my_str = ""
@@ -94,8 +93,8 @@ def news(n: int = 3) -> None:
 @app.command()
 def top(field:str, n=5) -> None:
     """
-        This command will print the top 5 stock of the argument symbol.
-        There is one optional "option" for this commmand which is the total number of scrips to be prints.
+        prints the top 5 stock of the argument symbol.
+        contains one optional "option" for this commmand which is the total number of scrips to be prints.
         You can pass either "gainer", "looser" or "turnover"
     """
     for i in range(int(n)):

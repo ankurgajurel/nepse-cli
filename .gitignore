@@ -1,6 +1,9 @@
 # Editor Config
 .vscode/
 
+# Python Environment Folder
+.env/
+
 # Python Cache
 __pycache__/
 *.pyc
