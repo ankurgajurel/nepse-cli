@@ -7,6 +7,7 @@ ALL_APIS = {
     'breaking_news': 'https://www.nepsealpha.com/api/smx9841/get_breaking_news',
     'scrip_data': 'https://merolagani.com/handlers/webrequesthandler.ashx?type=market_summary',
     'indices_data': 'https://www.nepsealpha.com/api/smx9841/dashboard_board',
+    'list-companies': 'https://merolagani.com/handlers/AutoSuggestHandler.ashx?type=Company',
 }
 
 def send_req_basic(scrip: str) -> dict:
@@ -70,3 +71,20 @@ def send_req_indices(index: str) -> dict:
     for i in data['home_table']:
         if i['index_name'].lower() == index.lower():
             return i
+
+
+
+#FOR API PURPOSES
+def company_names() -> dict:
+    """
+        This function will return all company names.
+    """
+    base_url = ALL_APIS['list-companies']
+    data = json.loads(requests.get(base_url).text)
+
+    companies = []
+    for i in data:
+        companies.append(i['l'])
+
+    return companies
+

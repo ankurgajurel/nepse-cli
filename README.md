@@ -89,3 +89,22 @@ For example, if you want to see the data of the trading development bank index, 
 For help regarding this command, type:
 
 ``` python3 nepse.py index --help ```
+
+# NEPSE_API FLASK
+
+I have also started developing a flask api for the data I am using for this app. To use the API, follow these steps.
+Note: You should have already setup the app and installed the required dependencies as mentioned in the top of this README.
+
+## Run the Flask App
+
+``` python3 ./api/nepse_api.py ```
+
+This will serve on the 127.0.0.1 port 3322.
+
+## Open the browser and go to this URL
+
+``` http://127.0.0.1:3322 ```
+
+## Company Names
+
+``` https://127.0.0.1:3322/companies ```

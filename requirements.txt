@@ -2,3 +2,4 @@ requests
 typing
 typer
 rich
+flask
