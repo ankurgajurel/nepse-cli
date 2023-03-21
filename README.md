@@ -4,9 +4,9 @@
 
 # Install the required dependencies
 ## For Windows,
-```pip install -r requirements.txt```
+```pip install -r ./requirements.txt```
 ## For Linux / UNIX,
-```pip3 install -r requirements.txt```
+```pip3 install -r ./requirements.txt```
 
 Or, if you don't want the hassle, you can also run the req.py file. This will install the dependencies for you.
 ```python3 req.py```
