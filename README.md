@@ -1,94 +1,126 @@
 # Change into the git directory
-```cd nepse-cli```
+```bash
+cd nepse-cli
+```
 
 
 # Install the required dependencies
 ## For Windows,
-```pip install -r ./requirements.txt```
+```bash
+pip install -r ./requirements.txt
+```
 ## For Linux / UNIX,
-```pip3 install -r ./requirements.txt```
+```bash
+pip3 install -r ./requirements.txt
+```
 
 Or, if you don't want the hassle, you can also run the req.py file. This will install the dependencies for you.
-```python3 req.py```
+```bash
+python3 req.py
+```
 
 For help, use the command:
-```python3 nepse.py --help```
+```bash
+python3 nepse.py --help
+```
 
-# Usage of nepse command
+# Usage of 'nepse' command
+```bash
+python3 ./nepse.py nepse 
+```
+This command will get you the recent data about the NEPSE Index. For example, the above command will return the latest index of the market.
 
-```python3 nepse.py nepse```
+## Options
+```bash
+Options:
+    --live [True / False / 1 / 0]: Live NEPSE Index
+    --status [True / False / 1 / 0]: Market Open or Closed
+    --percent-change: Percentage Change in NEPSE Index
+```
 
-This command will get you the recent data about the NEPSE Index. For example, the above command will return the latest index of the market. 
 
-This command has three options: --live, --status, --percent-change. All these options will require one argument either be 1 or True. This just tells the program that we only need that particular information.
+# Usage of 'all-scrips' command 
+This will print out all the scrips
+```bash
+python3 ./nepse.py all-scrips
+```
 
-If you want to check weather the market is open or not, you can use the following command. 
-
-``` python3 nepse.py nepse --status True ```
-
-To check the percentage change in the NEPSE Index, you can use the following command:
-
-``` python3 nepse.py nepse --percent-change 1 ```
-
-# Usage of company-profile command
-```python3 nepse.py company-profile adbl```
-
+# Usage of 'company-profile' command
+```bash
+python3 ./nepse.py company-profile [script]
+```
 This command will print the company profile of the scrip "ADBL". The company profile at the moment only includes the full name of the company and the type of the scrip, if it is a stock or a mutual fund or a debenture, etc
 
-# Usage of price command
 
-The price command will give return you the Last Transaction Price, Percentage Change in the price, highest price for that transaction day and lowest price for that transaction day. The command will only take one argument which is the scrip symbol of the desired company. For example,
+# Usage of 'price' command
+```bash
+python3 nepse.py price [scrip]
+```
+The price command will give return you the Last Transaction Price, Percentage Change in the price, highest price for that transaction day and lowest price for that transaction day. The command will only take one argument which is the scrip symbol of the desired company. 
 
-``` python3 nepse.py price nabil ```
 
+# Usage of 'news' command
+```bash
+python3 nepse.py news
+```
+You can also extract the latest breaking news related to NEPSE. There might not be many news beacuse this command will extract only important ones.
 
-# Usage of news command
+## Options
+Base: 
+```bash
+python3 nepse.py news [option]
+```
+--options
+```bash
+    --n [int]: Prints out specific number of news.
+```
 
-You can also extract the latest breaking news related to NEPSE. There might not be many news beacuse this command will extract only important ones. 
+# Usage of 'top' command
+```bash
+python3 nepse.py top [options]
+```
+You can also view the top gainers, loosers and the top turnover using the "top" command. The top command has one required argument. The argument might either be "gainer" or "looser" or "turnover". It will print a tuple of the symbol and the value of the property.
 
-```python3 nepse.py news```
+## Options
+```bash
+    gainer: Prints out the top gainer companies of the day
+    looser: Prints out the top loser companies of the day
+    turnover: Prints out the top turnover companies of the day
+```
 
-If you want to extract certain amount of news,
+--multi-option
+Base: 
+```bash
+python3 nepse.py top [option1] [option2]
+```
 
-```python3 nepse.py news --n 10```
+Option2s:
+```bash
+    --n [int]: specific number of companies in the top
+```
 
-# Usage of top command
-
-You can also view the top gainers, loosers and the top turnover using the "top" command. The top command has one required argument. The argument might either be "gainer" or "looser" or "turnover". It will print a tuple of the symbol and the value of the property. 
-
-```python3 nepse.py top gainer```
-
-This will print the top 5 gainers.
-
-```python3 nepse.py top looser```
-
-```python3 nepse.py top turnover```
-
-If you want to print a certain number of top scrips, you can use the option --n.
-
-For example, 
-
-```python3 nepse.py top gainer --n 10```
-
-This command will print the top 10 gainers of the latest trading day.
-
-Remember that the max value for --n is 10. So, app will throw an exception of list out of range
-
-# Usage of the index command
-
+# Usage of 'index' command
+```bash
+python3 nepse.py index [options]
+```
 You can check the data of every index like total gainers, losers of that index, value of that index, percent change of that index from the index command.
 
-``` python3 nepse.py index {index_name} ```
-
-The possible indices are: Banking, Tourism, Hotels, Devbanks, Hydropower, Finance, NonLifeInsu, Manufacture, Others, Microfinance, LifeInsu, Investment
-
-For example, if you want to see the data of the trading development bank index, you can use the following commnad.
-
-``` python3 nepse.py index devbanks ```
-
-For help regarding this command, type:
-
-``` python3 nepse.py index --help ```
+## Options
+```bash
+    Banking, 
+    Tourism, 
+    Hotels, 
+    Devbanks, 
+    Hydropower, 
+    Finance, 
+    NonLifeInsu, 
+    Manufacture, 
+    Others, 
+    Microfinance, 
+    LifeInsu, 
+    Investment
+```
+Note: the index options are not case sensitive.
 
 # NEPSE_API FLASK
 
@@ -97,7 +129,9 @@ Note: You should have already setup the app and installed the required dependenc
 
 ## Run the Flask App
 
-``` python3 ./api/nepse_api.py ```
+```bash
+python3 ./api/nepse_api.py 
+```
 
 This will serve on the 127.0.0.1 port 3322.
 

@@ -11,7 +11,7 @@ def index(index_name: str) -> None:
         \n
         The list of Index are: Banking, Tourism, Hotels, Devbanks, Hydropower, Finance, NonLifeInsu, Manufacture, Others, Microfinance, LifeInsu, Investment
     """
-    index_data = data.send_req_indices(index_name) 
+    index_data = data.send_req_indices(index_name.lower()) 
 
     total_gainers = int(index_data["total_positive_gainer"])
     total_losers = int(index_data['total_negative_gainer'])
@@ -30,13 +30,13 @@ def index(index_name: str) -> None:
 
 
 @app.command()
-def nepse(live=None, status=None, percent_change=None) -> None:
+def nepse(live=None, status=True, percent_change=None) -> None:
     """
         works with the basic data about NEPSE as a whole for that day. Options like market status, percentage change and all are included.
     """
-    if live:
+    if live == "":
         typer.echo(data.send_req_nepse("live"))
-    if bool(status):
+    if status:
         my_bool = data.send_req_nepse("status")['isOpen']
         if my_bool:
             typer.echo("The market is OPEN right now.")
@@ -44,8 +44,6 @@ def nepse(live=None, status=None, percent_change=None) -> None:
             typer.echo("The market is CLOSED right now.")
     if percent_change:
         typer.echo(f"{data.send_req_nepse('percent_change')}%")
-    if live==None and status==None and percent_change==None:
-        typer.echo(data.send_req_nepse("live"))
 
 @app.command()
 def company_profile(scrip) -> None:
@@ -102,6 +100,21 @@ def top(field:str, n=5) -> None:
             typer.echo(f"{data.send_req_top_stocks(i, field)}")
         except Exception as what_exception:
             print(f"Could not process because {what_exception}")
+
+@app.command()
+def scrips() -> str:
+    """
+        prints the names of all scrips
+    """
+    work_with = data.company_names()
+    output = ""
+    x = 0
+    for i in work_with:
+        output = str(x) + ". " + i + "\n"
+        typer.echo(output)
+        x += 1
+
+    
 
 
 if __name__ == "__main__":

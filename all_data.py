@@ -73,8 +73,6 @@ def send_req_indices(index: str) -> dict:
             return i
 
 
-
-#FOR API PURPOSES
 def company_names() -> dict:
     """
         This function will return all company names.
