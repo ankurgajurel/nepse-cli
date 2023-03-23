@@ -26,7 +26,7 @@ python3 nepse.py --help
 
 # Usage of 'nepse' command
 ```bash
-python3 ./nepse.py nepse 
+python3 nepse.py nepse 
 ```
 This command will get you the recent data about the NEPSE Index. For example, the above command will return the latest index of the market.
 
@@ -42,12 +42,12 @@ Options:
 # Usage of 'all-scrips' command 
 This will print out all the scrips
 ```bash
-python3 ./nepse.py all-scrips
+python3 nepse.py all-scrips
 ```
 
 # Usage of 'company-profile' command
 ```bash
-python3 ./nepse.py company-profile [script]
+python3 nepse.py company-profile [script]
 ```
 This command will print the company profile of the scrip "ADBL". The company profile at the moment only includes the full name of the company and the type of the scrip, if it is a stock or a mutual fund or a debenture, etc
 
