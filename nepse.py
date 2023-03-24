@@ -4,6 +4,7 @@ try:
     import all_data as data
 except:
     print('Try pip3 install -r requirements.txt')
+    exit()
 
 app = typer.Typer()
 
