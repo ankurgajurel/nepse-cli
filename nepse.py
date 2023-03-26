@@ -132,5 +132,5 @@ def scrips() -> str:
 
 
 if __name__ == "__main__":
-    print("THIS IS\n" + banner + "\n")
+    print("You're Using: \n" + banner + "\n")
     app()  
