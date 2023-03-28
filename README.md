@@ -14,7 +14,7 @@ pip install -r ./requirements.txt
 pip3 install -r ./requirements.txt
 ```
 
-Or, if you don't want the hassle, you can also run the req.py file. This will install the dependencies for you.
+Or, if you do not want the hassle, you can also run the req.py file. This will install the dependencies for you.
 ```bash
 python3 req.py
 ```
