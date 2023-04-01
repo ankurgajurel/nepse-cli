@@ -30,6 +30,9 @@ class TestAllData(unittest.TestCase):
             self.assertIsInstance(val, float)
 
     def test_top_stocks(self) -> None:
+        """
+            tests if the top stocks data is in list format
+        """
         n = 5
         field = 'gainer'
         field2 = 'looser'
@@ -40,6 +43,9 @@ class TestAllData(unittest.TestCase):
             self.assertIsInstance(all_data.send_req_top_stocks(i, field2), list)
 
     def test_indices(self) -> None:
+        """
+            tests is indices data is in dictionary fomat
+        """
         self.assertIsInstance(all_data.send_req_indices('devbank'), dict)
 
 if __name__ == '__main__':
