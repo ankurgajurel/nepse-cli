@@ -20,6 +20,12 @@ banner = \
 ░░░░░    ░░░░░ ░░░░░░░░░░ ░░░░░         ░░░░░░░░░  ░░░░░░░░░░         ░░░░░░░░░  ░░░░░░░░░░░ ░░░░░ 
 '''
 
+
+@app.callback(invoke_without_command=True)
+def default():
+    default_warning = """You have not entered any command, please go through the README to know more about it.
+    """
+    typer.echo(default_warning)
 @app.command()
 def index(index_name: str) -> None:
     """
