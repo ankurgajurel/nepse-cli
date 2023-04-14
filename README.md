@@ -143,6 +143,10 @@ This will serve on the 127.0.0.1 port 3322.
 
 ``` https://127.0.0.1:3322/companies ```
 
+## Scrip Data
+
+``` https://127.0.0.3322/scrip/adbl ```
+
 # Contributing
 
 <p>

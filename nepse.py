@@ -1,7 +1,7 @@
 try:
     import typer
     import typing
-    import all_data as data
+    import api.all_data as data
 except:
     print('Try pip3 install -r requirements.txt')
     exit()
