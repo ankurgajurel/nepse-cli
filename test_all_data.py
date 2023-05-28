@@ -1,5 +1,5 @@
 import unittest
-import api.all_data
+import api.all_data as all_data
 
 class TestAllData(unittest.TestCase):
 

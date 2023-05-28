@@ -145,7 +145,11 @@ This will serve on the 127.0.0.1 port 3322.
 
 ## Scrip Data
 
-``` https://127.0.0.3322/scrip/adbl ```
+``` https://127.0.0:3322/scrip/<scrip_name> ```
+
+For example, if we want script data for ADBL, the url should look like:
+
+``` https://127.0.0.1:3322/scrip/adbl ```
 
 # Contributing
 
